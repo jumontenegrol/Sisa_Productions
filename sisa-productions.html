@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sisa Productions — Donde cada historia se convierte en Vida</title>
+  <meta name="description" content="Fotografía y videografía profesional para bodas, XV años, bautismos y eventos especiales. Sisa Productions — Donde cada historia se convierte en Vida." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f4f0;
+      --silver: #b8bcc4;
+      --silver-light: #d8dce4;
+      --silver-dark: #7a7f89;
+      --mid: #1a1a1a;
+      --surface: #111111;
+      --accent: #c8cdd6;
+      --gold: #c9b97a;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Montserrat', sans-serif;
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.5rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s var(--ease), padding 0.4s var(--ease);
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(12px);
+      padding: 1rem 4rem;
+      border-bottom: 0.5px solid rgba(184,188,196,0.15);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .nav-logo span { color: var(--silver); font-style: italic; }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--silver-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--silver-light);
+      padding: 0.6rem 1.6rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--white); }
+
+    /* ─── HERO ────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 60%, rgba(10,10,10,1) 100%),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80') center/cover no-repeat;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s var(--ease) 0.4s forwards;
+    }
+    .hero-label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 1.5rem;
+    }
+    .hero-label::before, .hero-label::after {
+      content: '—';
+      margin: 0 0.8em;
+      opacity: 0.5;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--silver-light);
+    }
+    .hero-slogan {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--silver);
+      margin-bottom: 3rem;
+      letter-spacing: 0.03em;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2.8rem;
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--silver-light);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      display: inline-block;
+      padding: 1rem 2.8rem;
+      border: 0.5px solid var(--silver);
+      color: var(--silver-light);
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--white);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease) 1.6s forwards;
+    }
+    .scroll-line {
+      width: 0.5px;
+      height: 48px;
+      background: var(--silver);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    .scroll-text {
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+    }
+
+    /* ─── SECTION BASE ────────────────────────────── */
+    section { padding: 7rem 4rem; }
+    .section-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--silver-light); }
+    .section-intro {
+      font-size: 0.88rem;
+      color: var(--silver);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+    .divider {
+      width: 48px;
+      height: 0.5px;
+      background: var(--silver-dark);
+      margin: 2rem 0;
+    }
+
+    /* ─── SERVICIOS ───────────────────────────────── */
+    #servicios { background: var(--surface); }
+    .servicios-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: rgba(184,188,196,0.1);
+    }
+    .servicio-card {
+      background: var(--surface);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s var(--ease);
+      cursor: default;
+    }
+    .servicio-card:hover { background: #161616; }
+    .servicio-num {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--silver-dark);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+    .servicio-icon {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 1.2rem;
+      opacity: 0.7;
+    }
+    .servicio-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+    .servicio-desc {
+      font-size: 0.8rem;
+      color: var(--silver-dark);
+      line-height: 1.8;
+    }
+    .servicio-arrow {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver);
+      transition: color 0.2s, transform 0.2s;
+    }
+    .servicio-card:hover .servicio-arrow {
+      color: var(--white);
+      transform: translateX(4px);
+    }
+
+    /* ─── PORTAFOLIO ──────────────────────────────── */
+    #portafolio { background: var(--black); }
+    .portafolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .filtros {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .filtro-btn {
+      padding: 0.45rem 1.2rem;
+      border: 0.5px solid rgba(184,188,196,0.3);
+      background: transparent;
+      color: var(--silver);
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filtro-btn:hover, .filtro-btn.active {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+    }
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 220px;
+      gap: 4px;
+    }
+    .galeria-item {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    .galeria-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+    .galeria-item:nth-child(2) { grid-column: span 4; }
+    .galeria-item:nth-child(3) { grid-column: span 3; }
+    .galeria-item:nth-child(4) { grid-column: span 4; }
+    .galeria-item:nth-child(5) { grid-column: span 3; }
+    .galeria-item:nth-child(6) { grid-column: span 5; }
+    .galeria-item:nth-child(7) { grid-column: span 4; }
+    .galeria-item:nth-child(8) { grid-column: span 3; }
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease), filter 0.4s;
+      filter: grayscale(20%) brightness(0.85);
+    }
+    .galeria-item:hover img {
+      transform: scale(1.06);
+      filter: grayscale(0%) brightness(1);
+    }
+    .galeria-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.2rem;
+      transition: background 0.3s;
+    }
+    .galeria-item:hover .galeria-overlay { background: rgba(0,0,0,0.35); }
+    .galeria-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.3s var(--ease);
+    }
+    .galeria-item:hover .galeria-tag { opacity: 1; transform: translateY(0); }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,0,0,0.95);
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem; right: 2rem;
+      font-size: 2rem;
+      color: var(--silver);
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .lightbox-close:hover { color: var(--white); }
+
+    /* ─── POR QUÉ NOSOTROS ────────────────────────── */
+    #nosotros {
+      background: #0e0e0e;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+    }
+    .nosotros-visual {
+      position: relative;
+      min-height: 600px;
+      overflow: hidden;
+    }
+    .nosotros-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(30%) brightness(0.7);
+    }
+    .nosotros-badge {
+      position: absolute;
+      bottom: 3rem; right: -1px;
+      background: var(--white);
+      color: var(--black);
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    .badge-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 300;
+      line-height: 1;
+      display: block;
+    }
+    .badge-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      display: block;
+      margin-top: 0.3rem;
+    }
+    .nosotros-content {
+      padding: 6rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .razones-list {
+      margin-top: 2.5rem;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    .razon-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding-bottom: 1.8rem;
+      border-bottom: 0.5px solid rgba(184,188,196,0.12);
+    }
+    .razon-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .razon-num {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--silver-dark);
+      min-width: 2rem;
+      line-height: 1.3;
+    }
+    .razon-text h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .razon-text p {
+      font-size: 0.78rem;
+      color: var(--silver-dark);
+      line-height: 1.7;
+    }
+
+    /* ─── TESTIMONIOS ─────────────────────────────── */
+    #testimonios { background: var(--surface); }
+    .testimonios-grid {
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1px;
+      background: rgba(184,188,196,0.1);
+    }
+    .testimonio-card {
+      background: var(--surface);
+      padding: 2.5rem 2rem;
+    }
+    .stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1.2rem;
+    }
+    .star {
+      width: 12px;
+      height: 12px;
+      background: var(--gold);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    .testimonio-texto {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--silver-light);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .testimonio-cliente {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .cliente-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(184,188,196,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--silver);
+    }
+    .cliente-info p { font-size: 0.75rem; color: var(--white); font-weight: 500; }
+    .cliente-info span { font-size: 0.68rem; color: var(--silver-dark); }
+
+    /* ─── CTA FINAL ───────────────────────────────── */
+    #contacto {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 6rem 2rem;
+    }
+    .contacto-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.55) 60%, rgba(10,10,10,1) 100%),
+        url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&q=80') center/cover no-repeat;
+    }
+    .contacto-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+    .contacto-content .section-title { font-size: clamp(2.8rem, 6vw, 5rem); }
+    .contacto-desc {
+      font-size: 0.88rem;
+      color: var(--silver);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+    .wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.1rem 3rem;
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .wa-btn:hover {
+      background: var(--silver-light);
+      transform: translateY(-3px);
+    }
+    .wa-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .wa-note {
+      margin-top: 1rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--silver-dark);
+    }
+
+    /* ─── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 0.5px solid rgba(184,188,196,0.12);
+      padding: 4rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand-name span { font-style: italic; color: var(--silver); }
+    .footer-slogan {
+      font-size: 0.72rem;
+      color: var(--silver-dark);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .social-link {
+      width: 34px; height: 34px;
+      border: 0.5px solid rgba(184,188,196,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--silver-dark);
+      text-decoration: none;
+      font-size: 0.7rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-link:hover { border-color: var(--silver-light); color: var(--white); }
+    .footer-col h4 {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col ul li a {
+      font-size: 0.8rem;
+      color: var(--silver);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 0.5px solid rgba(184,188,196,0.1);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy {
+      font-size: 0.68rem;
+      color: var(--silver-dark);
+    }
+
+    /* ─── ANIMACIONES ─────────────────────────────── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(0.85); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── MOBILE ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: 0.8rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 1.5rem; }
+      footer { padding: 3rem 1.5rem; }
+      #nosotros { grid-template-columns: 1fr; }
+      .nosotros-visual { min-height: 400px; }
+      .nosotros-content { padding: 3rem 1.5rem; }
+      .galeria-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 180px;
+      }
+      .galeria-item { grid-column: span 1 !important; grid-row: span 1 !important; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .servicios-header { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .galeria-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="nav-logo" href="#">Sisa <span>Productions</span></a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#portafolio">Portafolio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+    </ul>
+    <a class="nav-cta" href="https://wa.me/573001234567?text=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20Sisa%20Productions.%20Me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">
+      Cotizar ahora
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-label">Fotografía &amp; Video Profesional</p>
+      <h1>Donde cada historia<br><em>cobra vida</em></h1>
+      <p class="hero-slogan">"Donde cada historia se convierte en Vida"</p>
+      <div class="hero-actions">
+        <a class="btn-primary"
+           href="https://wa.me/573001234567?text=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20Sisa%20Productions.%20%C2%A1Me%20gustar%C3%ADa%20saber%20m%C3%A1s!"
+           target="_blank" rel="noopener">
+          Sí, estoy interesado
+        </a>
+        <a class="btn-secondary" href="#portafolio">Ver portafolio</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="servicios-header reveal">
+      <div>
+        <p class="section-label">Lo que hacemos</p>
+        <h2 class="section-title">Capturamos tus<br><em>momentos más importantes</em></h2>
+      </div>
+      <p class="section-intro">Cada evento es único. Nuestro equipo llega preparado para inmortalizar cada emoción, cada detalle, cada instante irrepetible.</p>
+    </div>
+    <div class="servicios-grid reveal">
+      <div class="servicio-card">
+        <p class="servicio-num">01</p>
+        <svg class="servicio-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 8C11 8 5 14 5 21s6 11 13 11 13-4 13-11S25 8 18 8Z" stroke="#b8bcc4" stroke-width="1"/>
+          <circle cx="18" cy="21" r="4" stroke="#b8bcc4" stroke-width="1"/>
+          <path d="M13 8V5M23 8V5M9 12H4M32 12h-5" stroke="#b8bcc4" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+        <h3 class="servicio-name">Bodas</h3>
+        <p class="servicio-desc">Documentación completa de tu día especial: ceremonia, recepción y todos los detalles que lo hacen único.</p>
+        <span class="servicio-arrow">Saber más →</span>
+      </div>
+      <div class="servicio-card">
+        <p class="servicio-num">02</p>
+        <svg class="servicio-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="18" r="12" stroke="#b8bcc4" stroke-width="1"/>
+          <path d="M18 6v12l7 4" stroke="#b8bcc4" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+        <h3 class="servicio-name">XV Años</h3>
+        <p class="servicio-desc">Una celebración de vida que merece ser recordada para siempre. Fotografía y video cinematográfico.</p>
+        <span class="servicio-arrow">Saber más →</span>
+      </div>
+      <div class="servicio-card">
+        <p class="servicio-num">03</p>
+        <svg class="servicio-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 4C10 4 4 10 4 18s6 14 14 14 14-6 14-14S26 4 18 4Z" stroke="#b8bcc4" stroke-width="1"/>
+          <path d="M18 12v6M18 22v2" stroke="#b8bcc4" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="servicio-name">Bautismos</h3>
+        <p class="servicio-desc">Los primeros momentos de una vida son los más valiosos. Los preservamos con delicadeza y cuidado.</p>
+        <span class="servicio-arrow">Saber más →</span>
+      </div>
+      <div class="servicio-card">
+        <p class="servicio-num">04</p>
+        <svg class="servicio-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="10" width="28" height="18" rx="1" stroke="#b8bcc4" stroke-width="1"/>
+          <path d="M23 19l-7 4v-8l7 4Z" stroke="#b8bcc4" stroke-width="1" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="servicio-name">Video Cinematográfico</h3>
+        <p class="servicio-desc">Producción audiovisual de alto nivel con edición profesional y música personalizada para tu historia.</p>
+        <span class="servicio-arrow">Saber más →</span>
+      </div>
+      <div class="servicio-card">
+        <p class="servicio-num">05</p>
+        <svg class="servicio-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 28L14 18l6 6 4-4 8 8" stroke="#b8bcc4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="11" cy="13" r="3" stroke="#b8bcc4" stroke-width="1"/>
+        </svg>
+        <h3 class="servicio-name">Grados</h3>
+        <p class="servicio-desc">El fruto de años de esfuerzo merece un registro a la altura. Sesiones grupales e individuales.</p>
+        <span class="servicio-arrow">Saber más →</span>
+      </div>
+      <div class="servicio-card">
+        <p class="servicio-num">06</p>
+        <svg class="servicio-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="8" width="28" height="20" rx="1" stroke="#b8bcc4" stroke-width="1"/>
+          <path d="M4 14h28M12 14v14M24 14v14" stroke="#b8bcc4" stroke-width="0.8"/>
+        </svg>
+        <h3 class="servicio-name">Eventos Corporativos</h3>
+        <p class="servicio-desc">Cobertura profesional para lanzamientos, conferencias y eventos empresariales de todo tipo.</p>
+        <span class="servicio-arrow">Saber más →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO -->
+  <section id="portafolio">
+    <div class="portafolio-header reveal">
+      <div>
+        <p class="section-label">Nuestro trabajo</p>
+        <h2 class="section-title">Portafolio</h2>
+      </div>
+      <div class="filtros">
+        <button class="filtro-btn active" data-filter="todos">Todos</button>
+        <button class="filtro-btn" data-filter="bodas">Bodas</button>
+        <button class="filtro-btn" data-filter="xv">XV Años</button>
+        <button class="filtro-btn" data-filter="bautismos">Bautismos</button>
+        <button class="filtro-btn" data-filter="eventos">Eventos</button>
+      </div>
+    </div>
+    <div class="galeria-grid reveal">
+      <div class="galeria-item" data-cat="bodas" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Boda" loading="lazy" />
+        <div class="galeria-overlay"><span class="galeria-tag">Bodas</span></div>
+      </div>
+      <div class="galeria-item" data-cat="xv" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&q=80" alt="XV Años" loading="lazy" />
+        <div class="galeria-overlay"><span class="galeria-tag">XV Años</span></div>
+      </div>
+      <div class="galeria-item" data-cat="eventos" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Evento" loading="lazy" />
+        <div class="galeria-overlay"><span class="galeria-tag">Eventos</span></div>
+      </div>
+      <div class="galeria-item" data-cat="bautismos" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=600&q=80" alt="Bautismo" loading="lazy" />
+        <div class="galeria-overlay"><span class="galeria-tag">Bautismos</span></div>
+      </div>
+      <div class="galeria-item" data-cat="bodas" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Boda" loading="lazy" />
+        <div class="galeria-overlay"><span class="galeria-tag">Bodas</span></div>
+      </div>
+      <div class="galeria-item" data-cat="xv" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1510174700781-f1b12c68e032?w=800&q=80" alt="XV Años" loading="lazy" />
+        <div class="galeria-overlay"><span class="galeria-tag">XV Años</span></div>
+      </div>
+      <div class="galeria-item" data-cat="eventos" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&q=80" alt="Evento corporativo" loading="lazy" />
+        <div class="galeria-overlay"><span class="galeria-tag">Corporativo</span></div>
+      </div>
+      <div class="galeria-item" data-cat="bodas" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80" alt="Boda detalle" loading="lazy" />
+        <div class="galeria-overlay"><span class="galeria-tag">Bodas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <img id="lightbox-img" src="" alt="Foto ampliada" />
+  </div>
+
+  <!-- POR QUÉ NOSOTROS -->
+  <section id="nosotros">
+    <div class="nosotros-visual">
+      <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=900&q=80" alt="Fotografía de boda profesional" loading="lazy" />
+      <div class="nosotros-badge">
+        <span class="badge-num">+500</span>
+        <span class="badge-label">Historias capturadas</span>
+      </div>
+    </div>
+    <div class="nosotros-content reveal">
+      <p class="section-label">Por qué elegirnos</p>
+      <h2 class="section-title">Más que un<br><em>fotógrafo</em></h2>
+      <div class="divider"></div>
+      <ul class="razones-list">
+        <li class="razon-item">
+          <span class="razon-num">01</span>
+          <div class="razon-text">
+            <h3>Equipo profesional certificado</h3>
+            <p>Trabajamos con equipos de última generación y personal con formación profesional en fotografía y producción audiovisual.</p>
+          </div>
+        </li>
+        <li class="razon-item">
+          <span class="razon-num">02</span>
+          <div class="razon-text">
+            <h3>Entrega garantizada</h3>
+            <p>Tiempos de entrega claros y respetados. Tu material editado y listo en el plazo acordado, sin sorpresas.</p>
+          </div>
+        </li>
+        <li class="razon-item">
+          <span class="razon-num">03</span>
+          <div class="razon-text">
+            <h3>Atención personalizada</h3>
+            <p>Cada cliente recibe un servicio a medida. Nos reunimos contigo antes del evento para entender exactamente lo que quieres.</p>
+          </div>
+        </li>
+        <li class="razon-item">
+          <span class="razon-num">04</span>
+          <div class="razon-text">
+            <h3>Presencia en todo Colombia</h3>
+            <p>Viajamos a donde esté tu evento. Bogotá, Medellín, Cali, Cartagena — donde se escriba tu historia, ahí estaremos.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
+    <div class="reveal">
+      <p class="section-label">Lo que dicen de nosotros</p>
+      <h2 class="section-title">Clientes que<br><em>confían en nosotros</em></h2>
+    </div>
+    <div class="testimonios-grid reveal">
+      <div class="testimonio-card">
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="testimonio-texto">"Las fotos de mi boda superaron todas mis expectativas. Cada imagen cuenta una historia diferente y todas son perfectas. No podría haber pedido algo mejor."</p>
+        <div class="testimonio-cliente">
+          <div class="cliente-avatar">LP</div>
+          <div class="cliente-info">
+            <p>Laura & Pedro</p>
+            <span>Boda — Bogotá, 2024</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card">
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="testimonio-texto">"El video de los XV de mi hija nos hizo llorar a todos. Capturaron exactamente la magia de ese día. Profesionales en todo sentido, desde la planeación hasta la entrega."</p>
+        <div class="testimonio-cliente">
+          <div class="cliente-avatar">MR</div>
+          <div class="cliente-info">
+            <p>Martha Rodríguez</p>
+            <span>XV Años — Medellín, 2024</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card">
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="testimonio-texto">"Contratamos a Sisa para el bautismo de nuestro hijo y fue la mejor decisión. Discretos, puntuales y con un ojo increíble para los detalles. Los recomendamos sin dudar."</p>
+        <div class="testimonio-cliente">
+          <div class="cliente-avatar">CF</div>
+          <div class="cliente-info">
+            <p>Camilo & Fernanda</p>
+            <span>Bautismo — Cali, 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="contacto">
+    <div class="contacto-bg"></div>
+    <div class="contacto-content reveal">
+      <p class="section-label">¿Tienes un evento próximo?</p>
+      <h2 class="section-title">Tu historia<br><em>nos espera</em></h2>
+      <div class="divider" style="margin: 1.5rem auto;"></div>
+      <p class="contacto-desc">Cuéntanos sobre tu evento y recibe una cotización personalizada. Respondemos en menos de 24 horas. Sin compromisos.</p>
+      <a class="wa-btn"
+         href="https://wa.me/573001234567?text=Hola%20Sisa%20Productions%20%F0%9F%93%B8%20Estoy%20interesado%20en%20contratar%20sus%20servicios%20para%20un%20evento.%20Me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n."
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Sí, estoy interesado
+      </a>
+      <p class="wa-note">Respuesta rápida · Sin compromiso · 100% gratis cotizar</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand-name">Sisa <span>Productions</span></p>
+        <p class="footer-slogan">"Donde cada historia se convierte en Vida"</p>
+        <div class="footer-social">
+          <a class="social-link" href="#" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a class="social-link" href="#" aria-label="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a class="social-link" href="#" aria-label="TikTok">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Bodas</a></li>
+          <li><a href="#servicios">XV Años</a></li>
+          <li><a href="#servicios">Bautismos</a></li>
+          <li><a href="#servicios">Grados</a></li>
+          <li><a href="#servicios">Eventos corporativos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/573001234567" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:hola@sisaproductions.co">hola@sisaproductions.co</a></li>
+          <li><a href="#">Bogotá, Colombia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Sisa Productions. Todos los derechos reservados.</p>
+      <p class="footer-copy">Hecho con cuidado — Colombia</p>
+    </div>
+  </footer>
+
+  <script>
+    // NAV scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Lightbox
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Filtros portafolio
+    document.querySelectorAll('.filtro-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.galeria-item').forEach(item => {
+          const match = filter === 'todos' || item.dataset.cat === filter;
+          item.style.opacity = match ? '1' : '0.2';
+          item.style.pointerEvents = match ? 'auto' : 'none';
+          item.style.transition = 'opacity 0.35s ease';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
