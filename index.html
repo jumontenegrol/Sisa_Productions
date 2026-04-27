@@ -249,29 +249,221 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.5rem; } nav.scrolled { padding: 0.8rem 1.5rem; }
-      .nav-links { display: none; }
-      section { padding: 5rem 1.5rem; }
-      footer { padding: 3rem 1.5rem; }
-      #nosotros { grid-template-columns: 1fr; }
-      .nosotros-visual { min-height: 400px; }
-      .nosotros-content { padding: 3rem 1.5rem; }
-      .galeria-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 180px; }
-      .galeria-item { grid-column: span 1 !important; grid-row: span 1 !important; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .servicios-header { flex-direction: column; align-items: flex-start; }
-      .planes-grid { grid-template-columns: 1fr; }
-      .modal-box { max-height: 95vh; }
-      .modal-header { padding: 1.5rem; }
-      .modal-body { padding: 1.2rem 1.5rem 2rem; }
-      .galeria-modal-header { padding: 1rem 1.5rem; }
-      .galeria-modal-body { padding: 1rem 1.5rem 3rem; }
+    /* ─── MENÚ HAMBURGUESA ─── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px; height: 36px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      z-index: 300;
     }
-    @media (max-width: 600px) {
-      .galeria-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .nav-hamburger span {
+      display: block;
+      width: 100%; height: 1px;
+      background: var(--white);
+      transition: transform 0.35s var(--ease), opacity 0.25s, width 0.3s var(--ease);
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* MENÚ MÓVIL DESPLEGABLE */
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 250;
+      background: rgba(10,10,10,0.98);
+      backdrop-filter: blur(16px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s var(--ease);
+    }
+    .nav-mobile-menu.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-mobile-menu ul {
+      list-style: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+    }
+    .nav-mobile-menu ul li {
+      border-bottom: 0.5px solid rgba(184,188,196,0.1);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+    }
+    .nav-mobile-menu.open ul li { opacity: 1; transform: translateY(0); }
+    .nav-mobile-menu.open ul li:nth-child(1) { transition-delay: 0.05s; }
+    .nav-mobile-menu.open ul li:nth-child(2) { transition-delay: 0.1s; }
+    .nav-mobile-menu.open ul li:nth-child(3) { transition-delay: 0.15s; }
+    .nav-mobile-menu.open ul li:nth-child(4) { transition-delay: 0.2s; }
+    .nav-mobile-menu.open ul li:nth-child(5) { transition-delay: 0.25s; }
+    .nav-mobile-menu ul li a {
+      display: block;
+      padding: 1.3rem 2rem;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--silver-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-mobile-menu ul li a:hover { color: var(--white); }
+    .nav-mobile-cta {
+      margin-top: 2.5rem;
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s var(--ease) 0.3s, transform 0.4s var(--ease) 0.3s, background 0.2s;
+    }
+    .nav-mobile-menu.open .nav-mobile-cta { opacity: 1; transform: translateY(0); }
+    .nav-mobile-cta:hover { background: var(--silver-light); }
+
+    /* ─── RESPONSIVE TABLET (768px – 1024px) ─── */
+    @media (max-width: 1024px) {
+      nav { padding: 1.2rem 2.5rem; }
+      nav.scrolled { padding: 0.9rem 2.5rem; }
+      .nav-links { gap: 1.8rem; }
+      .nav-links a { font-size: 0.65rem; letter-spacing: 0.14em; }
+      section { padding: 6rem 2.5rem; }
+      footer { padding: 3.5rem 2.5rem; }
+      .servicios-grid { grid-template-columns: repeat(2, 1fr); }
+      .planes-grid { grid-template-columns: repeat(3, 1fr); }
+      .galeria-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 200px; }
+      .galeria-item:nth-child(1) { grid-column: span 3; grid-row: span 2; }
+      .galeria-item:nth-child(2) { grid-column: span 3; }
+      .galeria-item:nth-child(3) { grid-column: span 2; }
+      .galeria-item:nth-child(4) { grid-column: span 2; }
+      .galeria-item:nth-child(5) { grid-column: span 2; }
+      .galeria-item:nth-child(6) { grid-column: span 3; }
+      .galeria-item:nth-child(7) { grid-column: span 2; }
+      .galeria-item:nth-child(8) { grid-column: span 1; }
+      .videos-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; gap: 2.5rem; }
+    }
+
+    /* ─── RESPONSIVE MÓVIL (< 768px) ─── */
+    @media (max-width: 768px) {
+      /* NAV */
+      nav { padding: 1rem 1.2rem; }
+      nav.scrolled { padding: 0.8rem 1.2rem; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-mobile-menu { display: flex; }
+
+      /* SECCIONES */
+      section { padding: 4.5rem 1.2rem; }
+      footer { padding: 2.5rem 1.2rem; }
+
+      /* HERO */
+      .hero-content { padding: 1.2rem; }
+      .hero-label { font-size: 0.55rem; letter-spacing: 0.2em; }
+      .hero-label::before, .hero-label::after { display: none; }
+      .hero-actions { flex-direction: column; align-items: center; gap: 0.8rem; }
+      .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; padding: 0.9rem 1.5rem; }
+      .hero-scroll { display: none; }
+
+      /* SERVICIOS */
+      .servicios-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .section-intro { max-width: 100%; font-size: 0.82rem; }
+      .servicios-grid { grid-template-columns: 1fr; gap: 1px; }
+      .servicio-card { padding: 1.8rem 1.4rem; }
+
+      /* MODAL PLANES */
+      .modal-overlay { padding: 0; align-items: flex-end; }
+      .modal-box { border-radius: 0; max-height: 94vh; border-left: none; border-right: none; border-bottom: none; }
+      .modal-header { padding: 1.2rem 1.2rem 1rem; flex-direction: row; }
+      .modal-title { font-size: 1.6rem; }
+      .modal-body { padding: 1rem 1.2rem 2rem; }
+      .planes-grid { grid-template-columns: 1fr; gap: 1px; }
+      .plan-card { padding: 1.4rem 1.2rem; }
+      .plan-name { font-size: 1.3rem; }
+
+      /* VIDEOS */
+      .videos-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .videos-grid { grid-template-columns: 1fr; gap: 1px; }
+      .modal-video-overlay { padding: 0; }
+      .modal-video-box { max-width: 100%; }
+      .modal-video-close { top: -2rem; font-size: 1.2rem; }
+
+      /* GALERÍA */
+      .portafolio-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .filtros { gap: 0.4rem; }
+      .filtro-btn { padding: 0.4rem 0.9rem; font-size: 0.6rem; }
+      .galeria-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; gap: 3px; }
+      .galeria-item { grid-column: span 1 !important; grid-row: span 1 !important; }
+      .galeria-modal-header { padding: 0.9rem 1.2rem; }
+      .galeria-modal-body { padding: 0.8rem 1.2rem 3rem; }
+      .galeria-full-grid { grid-template-columns: repeat(2, 1fr); gap: 3px; }
+      .ver-galeria-btn { width: 100%; max-width: 320px; }
+
+      /* LIGHTBOX */
+      .lightbox-prev { left: 0.5rem; width: 38px; height: 38px; font-size: 1.2rem; }
+      .lightbox-next { right: 0.5rem; width: 38px; height: 38px; font-size: 1.2rem; }
+
+      /* NOSOTROS */
+      #nosotros { grid-template-columns: 1fr; padding: 0; }
+      .nosotros-visual { min-height: 280px; }
+      .nosotros-badge { bottom: 1.5rem; right: 0; padding: 1rem 1.5rem; }
+      .badge-num { font-size: 2.2rem; }
+      .nosotros-content { padding: 2.5rem 1.2rem; }
+      .razones-list { gap: 1.3rem; margin-top: 1.5rem; }
+      .razon-item { padding-bottom: 1.3rem; }
+
+      /* TESTIMONIOS */
+      .testimonios-grid { grid-template-columns: 1fr; }
+
+      /* CTA */
+      .wa-btn { padding: 1rem 2rem; font-size: 0.62rem; width: 100%; max-width: 320px; justify-content: center; }
+      .contacto-desc { font-size: 0.82rem; }
+
+      /* FOOTER */
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    }
+
+    /* ─── RESPONSIVE MUY PEQUEÑO (< 400px) ─── */
+    @media (max-width: 400px) {
+      h1 { font-size: 2.8rem; }
+      .section-title { font-size: 2rem; }
+      .galeria-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; }
+      .galeria-full-grid { grid-template-columns: 1fr; }
+      .modal-title { font-size: 1.4rem; }
+      .nav-mobile-menu ul li a { font-size: 1.6rem; }
+    }
+
+    /* ─── TOUCH: quitar hover en móvil ─── */
+    @media (hover: none) {
+      .servicio-card:hover { background: var(--surface); }
+      .galeria-item:hover img { transform: none; filter: grayscale(20%) brightness(0.85); }
+      .btn-primary:hover, .btn-secondary:hover { transform: none; }
+      .wa-btn:hover { transform: none; }
     }
   </style>
 </head>
@@ -288,7 +480,24 @@
     <li><a href="#testimonios">Testimonios</a></li>
   </ul>
   <a class="nav-cta" href="https://wa.me/573001234567?text=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20Sisa%20Productions." target="_blank" rel="noopener">Cotizar ahora</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MENÚ MÓVIL -->
+<div class="nav-mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="#servicios" onclick="closeMobileMenu()">Servicios</a></li>
+    <li><a href="#videos" onclick="closeMobileMenu()">Videos</a></li>
+    <li><a href="#portafolio" onclick="closeMobileMenu()">Portafolio</a></li>
+    <li><a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a></li>
+    <li><a href="#testimonios" onclick="closeMobileMenu()">Testimonios</a></li>
+  </ul>
+  <a class="nav-mobile-cta" href="https://wa.me/573001234567?text=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20Sisa%20Productions." target="_blank" rel="noopener" onclick="closeMobileMenu()">
+    Cotizar ahora
+  </a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -404,9 +613,9 @@
   </div>
   <div class="videos-grid reveal">
 
-    <div class="video-card" onclick="openVideo('assets/video.mp4', 'Poster de video')">
+    <div class="video-card" onclick="openVideo('assets/videos/boda-ejemplo.mp4', 'Poster de video')">
       <div class="video-thumb">
-        <img src="assets/Cap.png" alt="Boda — Video highlight" />
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Boda — Video highlight" />
         <div class="video-play-btn">
           <div class="play-circle"><div class="play-triangle"></div></div>
         </div>
@@ -502,9 +711,6 @@
     </div>
     <div class="galeria-item" data-cat="bodas" onclick="openLightbox(7)">
       <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80" alt="Boda detalle" loading="lazy" /><div class="galeria-overlay"><span class="galeria-tag">Bodas</span></div>
-    </div>
-    <div class="galeria-item" data-cat="bodas" onclick="openLightbox(8)">
-      <img src="assets/Cap.png" alt="Boda detalle" loading="lazy" /><div class="galeria-overlay"><span class="galeria-tag">Bodas</span></div>
     </div>
   </div>
   <button class="ver-galeria-btn" onclick="openGaleriaModal()">Ver galería completa →</button>
@@ -640,6 +846,25 @@
 // ── NAV ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+// ── MENÚ HAMBURGUESA ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function openMobileMenu() {
+  hamburger.classList.add('open');
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+hamburger.addEventListener('click', () => {
+  if (mobileMenu.classList.contains('open')) closeMobileMenu();
+  else openMobileMenu();
+});
 
 // ── SCROLL REVEAL ──
 const observer = new IntersectionObserver(entries => {
@@ -826,8 +1051,7 @@ const fullGallery = [
   'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=900&q=80',
   'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=900&q=80',
   'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=900&q=80',
-  'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=80',
-  'assets/Cap.png'
+  'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=80'
 ];
 
 function openGaleriaModal() {
